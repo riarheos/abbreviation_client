@@ -1,7 +1,7 @@
 from setuptools import setup
 
 setup(
-    name='ice',
+    name='abbreviation_client',
     version='1.0',
     packages=['abbreviation_client'],
     url='https://github.com/riarheos/abbreviation_client',
