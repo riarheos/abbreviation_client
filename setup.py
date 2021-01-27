@@ -9,4 +9,7 @@ setup(
     author='Pavel Pushkarev',
     author_email='riarheos@gmail.com',
     description='The abbreviation client command line library',
+    install_requires=[
+        'termcolor',
+    ],
 )
