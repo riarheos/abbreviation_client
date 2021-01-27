@@ -50,6 +50,10 @@ hello, beautiful girl
 
 Cool, isn't it?
 
+## Installation
+
+`pip3 install https://github.com/riarheos/abbreviation_client/archive/master.zip`
+
 ## API
 
 ### AutoAbbreviationClient
@@ -66,4 +70,41 @@ class Foo(AutoAbbreviationClient):
     def method(self, argument, optional_argument='default value'):
         """ Method description """
         pass
+```
+
+### AbbreviationClient
+
+The `AbbreviationClient` class does a little less magic: it allows you to explicitly specify the exported methods using the `client_handler` decorator.
+
+Example:
+```python
+class Foo(AbbreviationClient):
+    @client_handler
+    def exported_method(self):
+        pass
+
+    def hidden_but_public_method(self):
+        pass
+```
+
+### Parameter types
+
+Sometimes you want your parameters to be of a specific type. The library allows you to have those:
+
+- `BooleanParameterType`
+- `StringParameterType`
+- `EnumParameterType`
+- `PositionalParameterType`
+
+The names are self-explanatory, and the usage is as follows:
+
+```python
+class TestClient(AutoAbbreviationClient):
+    def method(self,
+               pos_arg: PositionalParameterType(),
+               str_arg: StringParameterType(),              # this is the default
+               enum_arg: EnumParameterType(['foo', 'bar']),
+               bool_arg: BooleanParameterType(),
+               ):
+        print(f'{pos_arg} {str_arg} {enum_arg} {bool_arg}')
 ```
